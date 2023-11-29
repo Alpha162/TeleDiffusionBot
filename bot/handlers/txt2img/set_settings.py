@@ -79,8 +79,8 @@ async def set_width_command(message: types.Message, is_command: bool = True):
         await message.reply('❌ Specify number as argument')
         return
 
-    if _ > 768 or _ < 256:
-        await message.reply('❌ Specify number <= 768 and >= 256')
+    if _ > 2048 or _ < 256:
+        await message.reply('❌ Specify number <= 2048 and >= 256')
         return
 
     await _set_property(message, 'width', is_command=is_command)
@@ -95,8 +95,8 @@ async def set_height_command(message: types.Message, is_command: bool = True):
         await message.reply('❌ Specify number as argument')
         return
 
-    if _ > 768 or _ < 256:
-        await message.reply('❌ Specify number <= 768 and >= 256')
+    if _ > 2048 or _ < 256:
+        await message.reply('❌ Specify number <= 2048 and >= 256')
         return
 
     await _set_property(message, 'height', is_command=is_command)
@@ -137,12 +137,12 @@ async def set_size_command(message: types.Message, is_command: bool = True):
         width = int(hxw[1])
     except Exception as e:
         assert e
-        await message.reply('❌ Specify size in <code>hxw</code> format, for example <code>512x512</code>',
+        await message.reply('❌ Specify size in <code>hxw</code> format, for example <code>1024x1024</code>',
                             parse_mode='HTML')
         return
 
-    if height > 768 or width > 768 or height < 256 or width < 256:
-        await message.reply('❌ Specify numbers <= 768 and >= 256')
+    if height > 2048 or width > 2048 or height < 256 or width < 256:
+        await message.reply('❌ Specify numbers <= 2048 and >= 256')
         return
 
     await _set_property(message, 'height', height, is_command=is_command)
